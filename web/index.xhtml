@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login Form</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"></link>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+        <style>
+            body {
+                background-image: url(http://3.bp.blogspot.com/-TEQ1_a6tFas/VL58zZdsfnI/AAAAAAAACG0/uL5DE8d8bcs/s1600/mclaren-p1-photoshoot-10.jpg);
+                    /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding-bottom: 300px;
+            
+            }
+            .container {
+                display: flex;
+                margin-top: 100px;
+                justify-content: center;
+                align-items: center;
+            }
+            .card {
+                width: 40%;
+                height: auto;
+                background: #212529;
+                color: white; 
+            }
+            .card-header {
+                text-align: center;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+        <!--Login pass the username and password and check the validation-->
+        <div class="container">
+            <div class="card">
+                <div class="card-header"><h3>Login Form</h3></div>
+                <div class="card-body">
+                    <h:form class="form-group">                   
+                        <h:outputText value="Username: "/>
+                        <h:inputText style="margin-top: 10px;" class="form-control" value="#{login.username}"></h:inputText>    
+                        <br></br>
+                        <h:outputText value="Password: "/>
+                        <h:inputSecret style="margin-top: 10px;" class="form-control" value="#{login.password}"></h:inputSecret>    
+                        <br></br>
+                        <h:commandButton action="#{login.authenticate}" style="margin-left: 100px; width: 200px" value="Submit" class="btn btn-info " />
+                    </h:form>
+                </div>       
+            </div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>   
+        <title>Add Record</title>
+        <!--/Importing Bootstrap for styling using classes/-->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"></link>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+
+
+        <style>
+            /* Background Immage */
+            body {
+                background-image: url(http://3.bp.blogspot.com/-TEQ1_a6tFas/VL58zZdsfnI/AAAAAAAACG0/uL5DE8d8bcs/s1600/mclaren-p1-photoshoot-10.jpg);
+                    /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding-bottom: 300px;
+            
+            }
+            .container {
+                margin-top: 100px;
+            }
+            h3 {
+                text-align: center;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <!--table used to insert the data-->
+            <h:form>
+                <h:panelGrid class="table table-bordered table-dark" border="1" columns="2">
+                    <f:facet name="header"><h3>Create Record</h3></f:facet>                     
+
+                    <h:outputLabel value="Car Make" />
+                    <h:inputText class="form-control" value="#{cars.car_make}" required="true" requiredMessage="Car make is required.">
+                        <h:message for="car make"/>
+                    </h:inputText>
+
+                    <h:outputLabel value="Car Model" />
+                    <h:inputText class="form-control" value="#{cars.car_model}" required="true" requiredMessage="Car model is required.">
+                        <h:message for="car model" />
+                    </h:inputText>
+
+                    <h:outputLabel value="Body Type" />
+                    <h:inputText class="form-control" value="#{cars.body_type}" required="true" requiredMessage="Body type is required.">
+                        <h:message for="body type" />
+                    </h:inputText>
+
+                    <h:outputLabel value="Fuel Type" />
+                    <h:inputText class="form-control" value="#{cars.fuel_type}" required="true" requiredMessage="Fuel type is required">
+                        <h:message for="fuel type" />
+                    </h:inputText>
+
+                    <h:outputLabel value="First Registration" />
+                    <h:inputText class="form-control" value="#{cars.first_registration}" required="true" requiredMessage="First registration is required to be a valid date of format yyyy-mm-dd">
+                        <h:message for="first registration" />
+                        <f:convertDateTime pattern="yyyy-mm-dd" />
+                    </h:inputText>
+                    <h:outputLabel value="Owner" />
+                    <h:inputText class="form-control" value="#{cars.owner}" required="true" requiredMessage="Owner is required.">
+                        <h:message for="owner" />
+                    </h:inputText>
+
+                    <h:commandLink value="Create Record" action="cars" actionListener="#{cars.create()}" >
+                    </h:commandLink>
+
+                    <h:link outcome="cars" value="Return to the main page"/>    
+                </h:panelGrid>  
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

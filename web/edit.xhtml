@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Edit Record</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"></link>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <style>
+            body {
+                background-image: url(http://3.bp.blogspot.com/-TEQ1_a6tFas/VL58zZdsfnI/AAAAAAAACG0/uL5DE8d8bcs/s1600/mclaren-p1-photoshoot-10.jpg);
+                    /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding-bottom: 300px;
+            
+            }
+            .container {
+                margin-top: 100px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <f:view>
+                <h:form>
+                    <!--The table is populated from the edit method from the backend-->
+
+                    <h:panelGrid class="table table-bordered table-dark" border="1" columns="2">
+                        <f:facet name="header">Edit Record</f:facet>
+
+                        <h:outputLabel value="Record ID" />
+                        <h:inputText class="form-control" value="#{cars.car_id}" readonly="true" required="true" requiredMessage="The ID is required!!">
+                        </h:inputText>
+
+                        <h:outputLabel value="Car Make" />
+                        <h:inputText class="form-control" value="#{cars.car_make}" required="true" requiredMessage="Car make is required.">
+                            <h:message for="car make" />
+                        </h:inputText>
+
+                        <h:outputLabel value="Car Model" />
+                        <h:inputText class="form-control" value="#{cars.car_model}" required="true" requiredMessage="Car model is required.">
+                            <h:message for="Car Model" />
+                        </h:inputText>
+
+                        <h:outputLabel value="Body Type" />
+                        <h:inputText class="form-control" value="#{cars.body_type}" required="true" requiredMessage="Body type is required.">
+                            <h:message for="body type" />
+                        </h:inputText>
+
+                        <h:outputLabel value="Fuel Type" />
+                        <h:inputText class="form-control" value="#{cars.fuel_type}" required="true" requiredMessage="Fuel type is required.">
+                            <h:message for="fuel type" />
+                        </h:inputText>
+
+                        <h:outputLabel value="Owner" />
+                        <h:inputText class="form-control" value="#{cars.owner}" required="true" requiredMessage="Owner is required.">
+                            <h:message for="owner" />
+                        </h:inputText>
+
+                        <h:commandLink value="Update Record" action="cars" actionListener="#{cars.update()}" >
+                            <!--calls cars.update that makes the update at the database-->
+                            <f:param name="update_id" value="#{cars.car_id}"/>
+                        </h:commandLink>
+
+                        <h:commandLink value="Return to the main page" action="cars">    
+                        </h:commandLink>
+                    </h:panelGrid>
+
+                </h:form> 
+            </f:view>
+        </div>
+    </h:body>
+</html>
+
